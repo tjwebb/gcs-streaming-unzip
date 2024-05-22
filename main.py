@@ -11,6 +11,8 @@ def extract(request):
         gcs_source_uri = request_json['gcs_source_uri']
     if request_json and 'gcs_dest_path' in request_json:
         gcs_dest_path = request_json['gcs_dest_path']
+    if request_json and 'filter_ignore' in request_json:
+        filter_ignore_regex = request_json['filter_ignore']
 
     gcs_bucket_name = gcs_source_uri.split("/")[2]
     gcs_path = "/".join(gcs_source_uri.split("/")[3:])
